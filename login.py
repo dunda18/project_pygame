@@ -146,8 +146,9 @@ class Register(QWidget):
                                'Данный логин уже занят</span></p></body></html>')
             return
 
-        cur.execute('INSERT INTO users(login,password,level,coins,car1,car2,car3,car4) VALUES(?, ?, ?, ?, ?, ?, ?, ?)',
-                    (self.loginEdit.text(), self.passwordEdit.text(), 1, 0, 2, 0, 0, 0))
+        cur.execute('INSERT INTO users(login,password,level,coins,car1,car2,car3,car4,select_car)'
+                    ' VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                    (self.loginEdit.text(), self.passwordEdit.text(), 1, 0, 2, 0, 0, 0, 1))
         data_base.commit()
         self.label.setText('<html><head/><body><p><span style=" font-size:10pt; color:#17e517;">'
                            'Вы успешно зарегистрированы</span></p></body></html>')
